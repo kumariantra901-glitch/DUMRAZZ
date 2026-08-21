@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport" />
+  <title>DUMRAAZ — The Imperial Dum Biryani</title>
+  
+  <!-- Tailwind CSS & Plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Luxury Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind Config -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#080605",
+            "on-background": "#fdf7f2",
+            "royal-copper": "#d27329",
+            "burnished-gold": "#e5a952",
+            "gold-light": "#fce9cf",
+            "surface": "#120e0a",
+            "surface-container": "#1a140f",
+            "surface-container-high": "#241c15",
+            "surface-container-highest": "#31261d",
+            "surface-container-lowest": "#060504",
+            "outline-gold": "rgba(229, 169, 82, 0.3)",
+            "outline-subtle": "rgba(255, 255, 255, 0.08)"
+          },
+          fontFamily: {
+            "cinzel": ["Cinzel", "serif"],
+            "playfair": ["Playfair Display", "serif"],
+            "montserrat": ["Montserrat", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="styles.css?v=6.0" />
+</head>
+<body class="bg-background text-on-background font-montserrat antialiased selection:bg-royal-copper selection:text-white">
+
+  <!-- Subtle Top Reading Progress Indicator -->
+  <div class="fixed top-0 left-0 right-0 h-[2px] z-[100] pointer-events-none">
+    <div id="pageProgressBar" class="h-full bg-gradient-to-r from-royal-copper via-burnished-gold to-yellow-100 w-0"></div>
+  </div>
+
+  <!-- Smart Minimal Luxury Header (No Audio Toggles or Video Controls) -->
+  <header class="smart-header" id="mainHeader">
+    <div class="header-inner">
+      <a href="#" class="brand-link">
+        <span class="brand-monogram">✦</span>
+        <span class="brand-name">DUMRAAZ</span>
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="#theDum" class="nav-item">The Dum</a>
+        <a href="#ourCraft" class="nav-item">Our Craft</a>
+        <a href="#signature" class="nav-item">Signature Biryani</a>
+        <a href="#ingredients" class="nav-item">Ingredients</a>
+        <a href="#ourStory" class="nav-item">Our Story</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#reserve" class="reserve-btn">
+          Order Biryani
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       1. FAST, HIGH-ENERGY 270-FRAME SCROLL EXPERIENCE (THE HERO)
+       ========================================================================= -->
+  <section class="scroll-hero-track" id="scrollHero">
+    <div class="sticky-viewport" id="stickyViewport">
+      
+      <!-- Screen Shake & Impact Stage -->
+      <div class="canvas-stage-wrapper" id="canvasStageWrapper">
+        
+        <!-- High-DPI Canvas (The Food Hero) -->
+        <canvas id="frameCanvas" class="hero-canvas"></canvas>
+        
+        <!-- Live Atmosphere & Saffron Particle Overlay Canvas -->
+        <canvas id="heroAtmosphereCanvas" class="atmosphere-canvas"></canvas>
+        
+        <!-- Cinematic Vignette & Ambient Glow -->
+        <div class="canvas-vignette"></div>
+        <div class="ambient-glow"></div>
+        <div class="film-grain-overlay"></div>
+        
+        <!-- Luxury Opening Scrim (Highlights Typography at Opening) -->
+        <div class="opening-scrim" id="openingScrim"></div>
+        
+        <!-- Impact Flash Climax Flare -->
+        <div class="impact-flash" id="impactFlash"></div>
+
+      </div>
+
+      <!-- Real-Time Choreographed Story Overlays -->
+      <div class="story-overlay-container">
+        
+        <!-- Beat 1: Early Opening -->
+        <div class="story-card active" id="storyBeat1" style="opacity: 1; transform: translateY(0px);">
+          <span class="story-badge">NIZAMI HERITAGE • SINCE 1856</span>
+          <h1 class="font-cinzel text-4xl sm:text-6xl md:text-8xl font-bold leading-[0.95] tracking-tight mb-4 text-white drop-shadow-2xl">
+            DUMRAAZ
+          </h1>
+          <p class="font-cinzel text-xl sm:text-3xl md:text-4xl gold-gradient font-semibold tracking-wide mb-3 leading-snug">
+            THE BIRYANI<br/>THAT COMMANDS<br/>THE TABLE.
+          </p>
+          <p class="text-xs sm:text-sm text-gold-light/75 font-light tracking-[0.25em] uppercase mb-6">
+            Slow Cooked. Deeply Loved.
+          </p>
+          <div class="scroll-cue">
+            <span class="cue-mouse"><span class="cue-wheel"></span></span>
+            <span>SCROLL TO UNVEIL THE RITUAL</span>
+          </div>
+        </div>
+
+        <!-- Beat 2: Sealed -->
+        <div class="story-card" id="storyBeat2">
+          <span class="story-badge">TRADITIONAL PUKHT</span>
+          <h2 class="font-cinzel text-5xl sm:text-7xl md:text-8xl font-bold leading-none mb-3 text-white drop-shadow-2xl">
+            SEALED.
+          </h2>
+          <p class="text-base sm:text-xl text-white/80 font-light max-w-md backdrop-blur-md bg-black/30 p-4 rounded-xl border border-white/10">
+            A dough-crimped seal traps 100% of the botanical moisture and pure vapor within the heavy copper vessel.
+          </p>
+        </div>
+
+        <!-- Beat 3: Slow Dum -->
+        <div class="story-card right-card" id="storyBeat3">
+          <span class="story-badge emerald">CHARCOAL EMBERS</span>
+          <h2 class="font-cinzel text-5xl sm:text-7xl md:text-8xl font-bold leading-none mb-3 text-white drop-shadow-2xl">
+            SLOW DUM.
+          </h2>
+          <p class="text-base sm:text-xl text-white/80 font-light max-w-md backdrop-blur-md bg-black/30 p-4 rounded-xl border border-white/10 inline-block text-left">
+            Slow-simmered over hardwood coals so the fragrant saffron juices penetrate each grain of aged basmati.
+          </p>
+        </div>
+
+        <!-- Beat 4: 90 Minutes Zero Shortcuts -->
+        <div class="story-card" id="storyBeat4">
+          <span class="story-badge">32 STONE-GROUND SPICES</span>
+          <h2 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-3 text-white drop-shadow-2xl">
+            90 MINUTES.<br/><span class="gold-gradient">ZERO SHORTCUTS.</span>
+          </h2>
+          <p class="text-sm sm:text-base text-white/80 font-light max-w-md backdrop-blur-md bg-black/30 p-4 rounded-xl border border-white/10">
+            Wild green cardamom, Malabar cloves, and star anise suspended in slow-motion royal harmony.
+          </p>
+        </div>
+
+        <!-- Beat 5: The Aroma Has Arrived -->
+        <div class="story-card right-card" id="storyBeat5">
+          <span class="story-badge">THE UNVEILING</span>
+          <h2 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-3 text-white drop-shadow-2xl">
+            THE AROMA<br/><span class="gold-gradient">HAS ARRIVED.</span>
+          </h2>
+          <p class="text-sm sm:text-base text-white/80 font-light max-w-md backdrop-blur-md bg-black/30 p-4 rounded-xl border border-white/10 inline-block text-left">
+            Pure Kashmiri Mongra saffron clouds billow into the room as the handi unseals.
+          </p>
+        </div>
+
+        <!-- Beat 6: Climax Impact Moment -->
+        <div class="story-card center-card" id="storyBeat6">
+          <span class="story-badge gold">THE CLIMAX OF FLAVOR</span>
+          <h2 class="font-cinzel text-5xl sm:text-7xl md:text-9xl font-black leading-none mb-4 text-white drop-shadow-2xl impact-text">
+            DUM. DONE.
+          </h2>
+          <p class="text-base sm:text-lg text-white/85 font-light max-w-lg mx-auto mb-6">
+            Every grain separated, fragrant, and glistening in pure desi ghee.
+          </p>
+          <div class="scroll-cue justify-center">
+            <span>SCROLL DOWN TO ENTER THE WEBSITE ↓</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       TRANSITION: "THE MOMENT YOU OPEN THE LID"
+       ========================================================================= -->
+  <section class="py-24 md:py-32 px-6 md:px-16 bg-surface-container-lowest border-y border-outline-subtle relative z-20 overflow-hidden text-center">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <span class="text-xs uppercase tracking-[0.35em] text-royal-copper font-bold block mb-4">The Royal Awakening</span>
+      <h2 class="font-cinzel text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+        THE MOMENT<br/>YOU OPEN THE LID.
+      </h2>
+      <p class="text-base sm:text-lg text-white/70 font-light max-w-xl mx-auto leading-relaxed">
+        The seal breaks, the aroma fills the room, and time slows down. Welcome to the art of precision Awadhi Biryani.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. THE DUM (EDITORIAL NUMBERS & MASTERY)
+       ========================================================================= -->
+  <section id="theDum" class="py-28 md:py-36 px-6 md:px-16 bg-background relative z-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5">
+          <span class="text-xs uppercase tracking-[0.3em] text-royal-copper font-semibold block mb-3">The Science of Steam</span>
+          <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white leading-tight mb-6">The Dum Philosophy</h2>
+          <p class="text-base text-white/70 font-light leading-relaxed mb-6">
+            In our kitchen, heat is not just a cooking element—it is an art form. By sealing the copper handi with atta dough, pressure builds naturally, circulating meat juices through the extra-long basmati rice.
+          </p>
+          <div class="p-6 rounded-2xl bg-surface border border-outline-subtle">
+            <h4 class="font-cinzel text-lg font-bold text-burnished-gold mb-2">Wood-Fired Precision</h4>
+            <p class="text-xs text-white/60 leading-relaxed">
+              We burn exclusively seasoned tamarind and acacia charcoal for an even, gentle thermal curve that never scorches the delicate spices.
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="stat-card">
+            <span class="font-cinzel text-5xl sm:text-6xl font-bold text-burnished-gold block mb-2">90m</span>
+            <h4 class="font-cinzel text-lg font-semibold text-white mb-2">Dum Pukht Duration</h4>
+            <p class="text-xs text-white/60 leading-relaxed">Slow-cooked over dying charcoal embers to let flavors interweave deeply.</p>
+          </div>
+
+          <div class="stat-card">
+            <span class="font-cinzel text-5xl sm:text-6xl font-bold text-burnished-gold block mb-2">120°C</span>
+            <h4 class="font-cinzel text-lg font-semibold text-white mb-2">Sealed Core Heat</h4>
+            <p class="text-xs text-white/60 leading-relaxed">Optimum thermal vapor pressure ensuring tender, fall-off-the-bone succulent meat.</p>
+          </div>
+
+          <div class="stat-card">
+            <span class="font-cinzel text-5xl sm:text-6xl font-bold text-burnished-gold block mb-2">24 hrs</span>
+            <h4 class="font-cinzel text-lg font-semibold text-white mb-2">Cold Yogurt Cure</h4>
+            <p class="text-xs text-white/60 leading-relaxed">Farm-fresh cuts marinated overnight in cultured Greek curd and shahi pastes.</p>
+          </div>
+
+          <div class="stat-card">
+            <span class="font-cinzel text-5xl sm:text-6xl font-bold text-burnished-gold block mb-2">100%</span>
+            <h4 class="font-cinzel text-lg font-semibold text-white mb-2">Desi Gir Cow Ghee</h4>
+            <p class="text-xs text-white/60 leading-relaxed">Traditional bilona ghee imparting an incomparable buttery aroma to every mouthful.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. OUR CRAFT (THE 4-STAGE RITUAL)
+       ========================================================================= -->
+  <section id="ourCraft" class="py-28 md:py-36 px-6 md:px-16 bg-surface-container-lowest relative z-20 border-y border-outline-subtle">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-xs uppercase tracking-[0.3em] text-royal-copper font-semibold block mb-3">Uncompromising Discipline</span>
+        <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white">Our 4-Stage Craft</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Step 01 -->
+        <div class="craft-card">
+          <div class="craft-num">01</div>
+          <h3 class="font-cinzel text-xl font-bold text-white mb-3">The Marination</h3>
+          <p class="text-xs text-white/60 leading-relaxed">32 stone-ground royal spices blended with aged curd, fresh mint, and cold-pressed mustard oil.</p>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="craft-card md:translate-y-4">
+          <div class="craft-num">02</div>
+          <h3 class="font-cinzel text-xl font-bold text-white mb-3">The Parboil</h3>
+          <p class="text-xs text-white/60 leading-relaxed">Aged Himalayan basmati parboiled to exactly 70% in whole spice-infused botanical water.</p>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="craft-card md:translate-y-8">
+          <div class="craft-num">03</div>
+          <h3 class="font-cinzel text-xl font-bold text-white mb-3">The Layering</h3>
+          <p class="text-xs text-white/60 leading-relaxed">Meat on base, fragrant rice on top, drizzled with golden barista onions and saffron milk.</p>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="craft-card md:translate-y-12">
+          <div class="craft-num">04</div>
+          <h3 class="font-cinzel text-xl font-bold text-white mb-3">The Dough Seal</h3>
+          <p class="text-xs text-white/60 leading-relaxed">Heavy copper rim crimped with whole-wheat dough to lock in the sacred aroma until served.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. SIGNATURE BIRYANI (SOLE HERO PRODUCT WITH LIVE 4S MOTION)
+       ========================================================================= -->
+  <section id="signature" class="py-28 md:py-36 px-6 md:px-16 bg-background relative z-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Live 4-Second Animated Spoon Lifting & Steam Showcase -->
+        <div class="lg:col-span-5 relative group">
+          <div class="absolute -inset-2 bg-gradient-to-r from-royal-copper/40 to-burnished-gold/40 rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity"></div>
+          <div class="relative rounded-2xl overflow-hidden border border-outline-gold bg-surface p-3 shadow-2xl">
+            
+            <div class="relative aspect-[4/5] rounded-xl overflow-hidden animated-spoon-stage">
+              <img id="spoonAnimatedImg" class="w-full h-full object-cover filter contrast-110 spoon-motion-effect" alt="Awadhi Chicken Dum Biryani Spoon Lift" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa-WbVJVCDRXPOSXuTm-uE7k7P-YgtuPvFy73x5kjYFYv_ZZfcinNwb4cKuyLKep1JSoCmvgypVOiFcDMwnwuMUS60PC8fs8WpW0RbplykyeEDqzo-W_e-jSrnh-yAjAJFg4SOPhdXFl1JXgaz6TdzxfAxa_xTcLANM00C17Z5DrMfidLXOZDdRNkIbL764bedDSZ66yh1Z36tZI_YkrkG1Y5BMGRIe4icqjvWRQvxTgHpR-z5u4Jl"/>
+              
+              <!-- Live Steam & Saffron Particle Overlay Canvas -->
+              <canvas id="steamCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+              <div class="cinematic-light-flare"></div>
+              
+              <!-- Status Badge -->
+              <div class="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-semibold text-white uppercase tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span>Live 4s Lift Motion</span>
+              </div>
+
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl backdrop-blur-md bg-black/60 border border-white/10 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] text-burnished-gold font-bold flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-xs">workspace_premium</span> The Sole Protagonist
+                </span>
+                <h3 class="font-cinzel text-xl font-bold text-white mt-0.5">Awadhi Chicken Dum Handi</h3>
+                <p class="text-xs text-white/70 mt-1">Slow-lifted extra-long basmati & juicy spiced cut</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Symphony of Layers & Bento Grid -->
+        <div class="lg:col-span-7 flex flex-col gap-8">
+          <div>
+            <span class="text-xs uppercase tracking-[0.3em] text-royal-copper font-semibold block mb-3">The Imperial Feast</span>
+            <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white leading-tight mb-4">Awadhi Chicken Dum Biryani</h2>
+            <p class="text-base text-white/70 font-light leading-relaxed">
+              Our single, uncompromising culinary creation. Hand-assembled with aged long-grain basmati, tender whole cuts marinated in royal spices, and sealed under charcoal dum in an authentic copper handi.
+            </p>
+          </div>
+
+          <!-- Bento Features Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-6 rounded-xl bg-surface-container border border-outline-subtle hover:border-outline-gold transition-all duration-300 group">
+              <span class="material-symbols-outlined text-burnished-gold text-3xl mb-3 block group-hover:scale-110 transition-transform">local_fire_department</span>
+              <h4 class="font-cinzel text-lg font-bold text-white mb-1.5">Slow Wood-Fire Dum</h4>
+              <p class="text-xs text-white/60 leading-relaxed">Simmered over aged hardwood coals for that unmistakable deep smoky essence.</p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-surface-container border border-outline-subtle hover:border-outline-gold transition-all duration-300 group">
+              <span class="material-symbols-outlined text-burnished-gold text-3xl mb-3 block group-hover:scale-110 transition-transform">diamond</span>
+              <h4 class="font-cinzel text-lg font-bold text-white mb-1.5">Pampore Saffron</h4>
+              <p class="text-xs text-white/60 leading-relaxed">Grade-A Kashmiri Mongra strands steeped in warm full-cream milk.</p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-surface-container border border-outline-subtle hover:border-outline-gold transition-all duration-300 group">
+              <span class="material-symbols-outlined text-burnished-gold text-3xl mb-3 block group-hover:scale-110 transition-transform">schedule</span>
+              <h4 class="font-cinzel text-lg font-bold text-white mb-1.5">90-Minute Rest</h4>
+              <p class="text-xs text-white/60 leading-relaxed">The crucial post-cook resting phase allowing the juices to marry into every grain.</p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-surface-container border border-outline-subtle hover:border-outline-gold transition-all duration-300 group">
+              <span class="material-symbols-outlined text-burnished-gold text-3xl mb-3 block group-hover:scale-110 transition-transform">agriculture</span>
+              <h4 class="font-cinzel text-lg font-bold text-white mb-1.5">2-Year Aged Rice</h4>
+              <p class="text-xs text-white/60 leading-relaxed">Himalayan long-grain basmati aged to delicate non-sticky perfection.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. INGREDIENTS (INTERACTIVE LUXURY PRESENTATION)
+       ========================================================================= -->
+  <section id="ingredients" class="py-28 md:py-36 px-6 md:px-16 bg-surface-container-lowest relative z-20 border-y border-outline-subtle">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-xs uppercase tracking-[0.3em] text-royal-copper font-semibold block mb-3">Botanical Alchemy</span>
+        <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white">Pure Ingredients</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="ingredient-card">
+          <div class="ingredient-icon">🌾</div>
+          <h3 class="font-cinzel text-xl font-bold text-white mb-2">Himalayan 1121 Basmati</h3>
+          <p class="text-xs text-white/60 leading-relaxed mb-4">Aged for 24 months in wooden granaries so each grain elongates to over 20mm without breaking.</p>
+          <span class="text-[10px] uppercase tracking-widest text-burnished-gold font-bold">24-Month Aged</span>
+        </div>
+
+        <div class="ingredient-card gold-border">
+          <div class="ingredient-icon">👑</div>
+          <h3 class="font-cinzel text-xl font-bold text-white mb-2">Pampore Mongra Saffron</h3>
+          <p class="text-xs text-white/60 leading-relaxed mb-4">Highest Grade-A red stigmas harvested from the valley of Kashmir, giving golden color and regal aroma.</p>
+          <span class="text-[10px] uppercase tracking-widest text-burnished-gold font-bold">Grade-A Certified</span>
+        </div>
+
+        <div class="ingredient-card">
+          <div class="ingredient-icon">🌿</div>
+          <h3 class="font-cinzel text-xl font-bold text-white mb-2">32 Shahi Botanicals</h3>
+          <p class="text-xs text-white/60 leading-relaxed mb-4">Malabar cloves, stone flowers (dagad phool), mace, green cardamom, and roasted royal jeera.</p>
+          <span class="text-[10px] uppercase tracking-widest text-burnished-gold font-bold">Stone-Ground Daily</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. OUR STORY (ROYAL NIZAMI LINEAGE)
+       ========================================================================= -->
+  <section id="ourStory" class="py-28 md:py-36 px-6 md:px-16 bg-background relative z-20">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="text-xs uppercase tracking-[0.3em] text-royal-copper font-semibold block mb-3">Lineage of Excellence</span>
+      <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white leading-tight mb-8">
+        Born in Royal Kitchens.<br/>Perfected for You.
+      </h2>
+      <p class="text-base sm:text-lg text-white/70 font-light leading-relaxed mb-8">
+        DUMRAAZ was created with one single obsession: to restore the purity of authentic Awadhi Dum Biryani. No shortcuts, no pre-cooked frozen sauces, and no compromises. Every handi is prepared as a masterwork of culinary devotion.
+      </p>
+      <div class="inline-flex items-center gap-3 p-3 px-6 rounded-full bg-surface border border-outline-gold">
+        <span class="text-burnished-gold text-lg">✦</span>
+        <span class="text-xs uppercase tracking-widest text-white/80 font-medium">Crafted in Authentically Hand-Hammered Pure Copper</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. ORDER / CTA (YOUR TABLE IS WAITING)
+       ========================================================================= -->
+  <section id="reserve" class="py-28 md:py-36 px-6 md:px-16 bg-surface-container relative z-20 border-t border-outline-subtle">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="text-xs uppercase tracking-[0.3em] text-royal-copper font-semibold block mb-3">Reserve An Experience</span>
+      <h2 class="font-cinzel text-4xl sm:text-6xl font-bold text-white mb-4">YOUR TABLE<br/>IS WAITING.</h2>
+      <p class="text-sm sm:text-base text-white/70 font-light max-w-lg mx-auto mb-10 leading-relaxed">
+        Delivered fresh in authentic sealed copper handis, piping hot and unsealed at your table.
+      </p>
+
+      <form class="max-w-xl mx-auto flex flex-col gap-4 text-left" onsubmit="event.preventDefault(); alert('👑 Royal Feast Order Received! Master chefs have commenced the 90-minute dum preparation for you.');">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-[11px] uppercase tracking-wider text-white/60 block mb-1.5">Guest Name</label>
+            <input type="text" placeholder="Lord / Lady Name" required class="w-full px-4 py-3 rounded-lg bg-black/50 border border-outline-subtle focus:border-burnished-gold text-white text-sm outline-none transition-colors" />
+          </div>
+          <div>
+            <label class="text-[11px] uppercase tracking-wider text-white/60 block mb-1.5">Phone Number</label>
+            <input type="tel" placeholder="+91 98765 43210" required class="w-full px-4 py-3 rounded-lg bg-black/50 border border-outline-subtle focus:border-burnished-gold text-white text-sm outline-none transition-colors" />
+          </div>
+        </div>
+
+        <div>
+          <label class="text-[11px] uppercase tracking-wider text-white/60 block mb-1.5">Signature Handi Selection</label>
+          <select class="w-full px-4 py-3 rounded-lg bg-black/50 border border-outline-subtle focus:border-burnished-gold text-white text-sm outline-none transition-colors">
+            <option value="awadhi-chicken">Awadhi Chicken Dum Handi (Serves 2-3)</option>
+            <option value="awadhi-chicken-large">Grand Emperor Chicken Dum Handi (Serves 4-6)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full mt-3 py-4 rounded-full text-xs font-semibold uppercase tracking-widest bg-gradient-to-r from-burnished-gold to-royal-copper text-black shadow-xl shadow-royal-copper/30 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer">
+          ORDER BIRYANI
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. FOOTER
+       ========================================================================= -->
+  <footer class="py-16 px-6 md:px-16 bg-surface-container-lowest border-t border-outline-subtle relative z-20 flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="flex items-center gap-3">
+      <span class="w-7 h-7 rounded-full border border-burnished-gold/60 flex items-center justify-center text-burnished-gold text-xs">✦</span>
+      <span class="font-cinzel tracking-[0.2em] text-base font-bold text-white">DUMRAAZ</span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8 text-xs text-white/60">
+      <a href="#theDum" class="hover:text-burnished-gold transition-colors">The Dum</a>
+      <a href="#ourCraft" class="hover:text-burnished-gold transition-colors">Our Craft</a>
+      <a href="#signature" class="hover:text-burnished-gold transition-colors">Signature</a>
+      <a href="#ingredients" class="hover:text-burnished-gold transition-colors">Ingredients</a>
+      <a href="#ourStory" class="hover:text-burnished-gold transition-colors">Our Story</a>
+    </div>
+    <p class="text-xs text-white/40 font-light">© 2026 DUMRAAZ. Art of Precision Biryani.</p>
+  </footer>
+
+  <script src="app.js?v=6.0"></script>
+</body>
+</html>

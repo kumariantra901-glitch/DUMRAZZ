@@ -1,0 +1,657 @@
+/* ==========================================================================
+   DUMRAAZ — Cinematic Imperial Luxury Experience Stylesheet (v6.0)
+   ========================================================================== */
+
+:root {
+  --bg-dark: #080605;
+  --bg-surface: #120e0a;
+  --gold-primary: #e5a952;
+  --gold-light: #fce9cf;
+  --copper-royal: #d27329;
+  --border-gold: rgba(229, 169, 82, 0.28);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg-dark);
+  color: #fdf7f2;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  background-color: var(--bg-dark);
+  color: #fdf7f2;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Smart Header (Ultra-minimal during hero, reveals navigation smoothly)
+   ========================================================================== */
+.smart-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1.2rem 2.5rem;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+}
+
+.smart-header.nav-scrolled {
+  background: rgba(8, 6, 5, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.85rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-monogram {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(229, 169, 82, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.brand-link:hover .brand-monogram {
+  transform: scale(1.08);
+}
+
+.brand-name {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.25em;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.brand-link:hover .brand-name {
+  color: var(--gold-primary);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: all 0.35s ease;
+}
+
+.smart-header.nav-scrolled .nav-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav-item {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: var(--gold-primary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.reserve-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.4rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--gold-primary), var(--copper-royal));
+  color: #060504;
+  box-shadow: 0 4px 20px rgba(210, 115, 41, 0.3);
+  transition: all 0.3s ease;
+}
+
+.reserve-btn:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 25px rgba(210, 115, 41, 0.5);
+}
+
+/* ==========================================================================
+   Hero Canvas & Atmospheric Layers (Shortened 200vh Track)
+   ========================================================================== */
+.scroll-hero-track {
+  position: relative;
+  width: 100%;
+  height: 165vh; /* Short, satisfying, responsive scroll track */
+  z-index: 10;
+}
+
+.sticky-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-dark);
+}
+
+.canvas-stage-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.canvas-stage-wrapper.micro-shake {
+  animation: screenMicroShake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes screenMicroShake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 1.5px); }
+  40% { transform: translate(2px, -1.5px); }
+  60% { transform: translate(-1.5px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.hero-canvas {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  object-fit: cover;
+  display: block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  filter: contrast(1.08) brightness(1.04) saturate(1.1);
+  image-rendering: -webkit-optimize-contrast;
+  will-change: transform;
+}
+
+.atmosphere-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.canvas-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 35%, rgba(8, 6, 5, 0.4) 70%, rgba(8, 6, 5, 0.95) 100%);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vh;
+  background: radial-gradient(circle, rgba(210, 115, 41, 0.18) 0%, rgba(229, 169, 82, 0.06) 50%, transparent 80%);
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: 4;
+}
+
+.film-grain-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 7;
+}
+
+.opening-scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(8, 6, 5, 0.72) 0%, rgba(8, 6, 5, 0.94) 100%);
+  pointer-events: none;
+  z-index: 8;
+  opacity: 0.85;
+  transition: opacity 0.35s ease-out;
+}
+
+.impact-flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 55%, rgba(255, 210, 120, 0.35) 0%, rgba(210, 115, 41, 0.15) 50%, transparent 80%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease-out;
+  mix-blend-mode: screen;
+  z-index: 8;
+}
+
+.impact-flash.active {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Choreographed Story Cards (Synchronized with 200vh Track)
+   ========================================================================== */
+.story-overlay-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 6vw;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.story-card {
+  position: absolute;
+  max-width: 620px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  pointer-events: none;
+}
+
+.story-card.active {
+  pointer-events: auto;
+}
+
+.story-card.right-card {
+  right: 6vw;
+  max-width: 560px;
+  text-align: right;
+}
+
+.story-card.center-card {
+  left: 50%;
+  transform: translate(-50%, 24px);
+  max-width: 700px;
+  text-align: center;
+}
+
+.story-card.center-card.active {
+  transform: translate(-50%, 0);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #fce9cf 30%, #e5a952 70%, #d27329 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.story-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: rgba(229, 169, 82, 0.14);
+  color: var(--gold-primary);
+  border: 1px solid rgba(229, 169, 82, 0.4);
+  margin-bottom: 1.2rem;
+}
+
+.story-badge.emerald {
+  background: rgba(16, 185, 129, 0.14);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.story-badge.gold {
+  background: rgba(229, 169, 82, 0.25);
+  color: var(--gold-light);
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 15px rgba(229, 169, 82, 0.3);
+}
+
+.impact-text {
+  background: linear-gradient(135deg, #ffffff 0%, #fff 30%, var(--gold-primary) 70%, var(--copper-royal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(229, 169, 82, 0.4);
+}
+
+.scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+}
+
+.cue-mouse {
+  width: 20px;
+  height: 32px;
+  border: 2px solid var(--gold-primary);
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.cue-wheel {
+  width: 3px;
+  height: 6px;
+  background: var(--gold-primary);
+  border-radius: 9999px;
+  animation: cueScroll 1.6s infinite ease-in-out;
+}
+
+@keyframes cueScroll {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(10px); opacity: 0; }
+}
+
+/* ==========================================================================
+   Post-Hero Cards & Layout
+   ========================================================================== */
+.stat-card {
+  padding: 2.2rem;
+  border-radius: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.craft-card {
+  padding: 2.2rem;
+  border-radius: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.craft-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.craft-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(229, 169, 82, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.ingredient-card {
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+.ingredient-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.ingredient-card.gold-border {
+  border-color: var(--border-gold);
+  background: linear-gradient(180deg, rgba(28, 22, 16, 0.9) 0%, rgba(18, 14, 10, 0.9) 100%);
+  box-shadow: 0 10px 30px rgba(229, 169, 82, 0.1);
+}
+
+.ingredient-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ==========================================================================
+   ABOUT / SIGNATURE SECTION — 4-SECOND LIVE ANIMATED SPOON & STEAM EFFECT
+   ========================================================================== */
+.animated-spoon-stage {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(210, 115, 41, 0.2);
+}
+
+.spoon-motion-effect {
+  transform-origin: 50% 60%;
+  animation: spoonLiftCycle 4s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  will-change: transform, filter;
+}
+
+@keyframes spoonLiftCycle {
+  0% {
+    transform: scale(1.04) translateY(0px) rotate(0deg);
+    filter: contrast(1.12) brightness(1.02);
+  }
+  28% {
+    transform: scale(1.08) translateY(-14px) rotate(-1.5deg);
+    filter: contrast(1.16) brightness(1.08);
+  }
+  50% {
+    transform: scale(1.09) translateY(-18px) rotate(1.2deg);
+    filter: contrast(1.2) brightness(1.12);
+  }
+  75% {
+    transform: scale(1.06) translateY(-7px) rotate(-0.5deg);
+    filter: contrast(1.14) brightness(1.05);
+  }
+  100% {
+    transform: scale(1.04) translateY(0px) rotate(0deg);
+    filter: contrast(1.12) brightness(1.02);
+  }
+}
+
+.cinematic-light-flare {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    65deg,
+    transparent 40%,
+    rgba(255, 220, 160, 0.15) 48%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(210, 115, 41, 0.2) 53%,
+    transparent 60%
+  );
+  transform: translateX(-100%) rotate(20deg);
+  animation: lightSweep 4s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 15;
+  mix-blend-mode: overlay;
+}
+
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-120%) rotate(20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  48% {
+    transform: translateX(120%) rotate(20deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(120%) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   Comprehensive Responsive Adaptations (Mobile, Tablet, Desktop)
+   ========================================================================== */
+@media (min-width: 1440px) {
+  .story-card {
+    max-width: 650px;
+  }
+  .story-card.center-card {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .scroll-hero-track {
+    height: 150vh;
+  }
+  .story-overlay-container {
+    padding: 2rem 4vw;
+  }
+  .story-card {
+    max-width: 480px;
+  }
+  .story-card.right-card {
+    right: 4vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .smart-header {
+    padding: 0.9rem 1.5rem;
+  }
+  .smart-header.nav-scrolled {
+    padding: 0.75rem 1.5rem;
+  }
+  .nav-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-hero-track {
+    height: 140vh;
+  }
+  .story-overlay-container {
+    padding: 1.25rem;
+    align-items: center;
+  }
+  .story-card {
+    max-width: calc(100vw - 2.5rem);
+    left: 1.25rem;
+  }
+  .story-card.right-card {
+    right: auto;
+    left: 1.25rem;
+    text-align: left;
+  }
+  .story-card.center-card {
+    left: 50%;
+    width: calc(100vw - 2.5rem);
+    max-width: 480px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .smart-header {
+    padding: 0.7rem 1rem;
+  }
+  .smart-header.nav-scrolled {
+    padding: 0.6rem 1rem;
+  }
+  .brand-name {
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+  }
+  .brand-monogram {
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+  }
+  .reserve-btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+  .story-overlay-container {
+    padding: 1rem;
+  }
+  .story-card {
+    max-width: calc(100vw - 2rem);
+    left: 1rem;
+  }
+  .story-card.right-card {
+    left: 1rem;
+  }
+  .story-card.center-card {
+    left: 50%;
+    width: calc(100vw - 2rem);
+  }
+  .story-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+}
